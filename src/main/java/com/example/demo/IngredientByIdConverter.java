@@ -7,6 +7,11 @@ import java.util.Map;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+/*
+  This class is designed to facilitate the conversion of ingredient IDs to 'Ingredient' objects.
+  It's often used in Spring apps where data needs to be converted between different formats or types.
+*/
+
 @Component
 public class IngredientByIdConverter implements Converter<String, Ingredient> {
   private Map<String, Ingredient> ingredientMap = new HashMap<>();
