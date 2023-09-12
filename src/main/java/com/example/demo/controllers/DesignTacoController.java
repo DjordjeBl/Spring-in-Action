@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.ui.Model;
@@ -70,22 +71,18 @@ public class DesignTacoController {
         return "design";
     }
 
-    /*
-        1. We start by converting the 'List' of 'ingredients' into a stream using the '.stream()' method.
-           A stream provides a way to perform operations on collections of data in a more concise way compared to traditional loop-based approaches.
-        2. We then use '.filter()' method on the stream. The '.filter()' method takes a lambda expression ('x -> x.getType().equals(type)') as an argument.
-           This lambda expression is used to test each element in the stream ('x') to see if its 'Type' matches the 'type' parameter provided to the method.
-        3. Elements that pass the filter condition (i.e., where 'x.getType().equals(type)' is 'true') are retained in the stream.
-        4. Finally, it collects the filtered elements into a new 'List' using the '.collect(Collectors.toList())' method.
-           This creates a new list containing only the 'Ingredient' objects whose 'Type' matches the provided 'type'.
-
-        In summary, this method takes a list of 'Ingredient' objects and returns a new list containing only those with a specific 'Type'.
-        It uses Java's stream and lambda expressions to perform the filtering operation.
-     */
     private Iterable<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
         return ingredients
                 .stream()
                 .filter(x -> x.getType().equals(type))
                 .collect(Collectors.toList());
+    }
+
+    @PostMapping
+    public String processTaco(Taco taco, @ModelAttribute TacoOrder tacoOrder) {
+        tacoOrder.addTaco(taco);
+        log.info("Processing taco: {}", taco);
+
+        return "redirect:/orders/current";
     }
 }
