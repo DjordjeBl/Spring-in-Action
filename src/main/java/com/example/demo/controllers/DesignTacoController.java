@@ -47,15 +47,12 @@ public class DesignTacoController {
 
         Type[] types = Ingredient.Type.values();
         for (Type type : types) {
-            model.addAttribute(type.toString().toLowerCase());
-            filterByType(ingredients, type);
+          String attributeName = type.toString().toLowerCase();
+          model.addAttribute(attributeName, filterByType(ingredients, type));
+          log.debug("Added attribute '{}' to the model.", attributeName);
         }
     }
 
-    /*
-        When a request is processed by a Spring MVC controller method, it often needs to prepare data that will be displayed in a view.
-        This data is usually stored in a model, which is a container for data passed between the controller and the view.
-     */
     @ModelAttribute(name = "tacoOrder")
     public TacoOrder order() {
         return new TacoOrder();
