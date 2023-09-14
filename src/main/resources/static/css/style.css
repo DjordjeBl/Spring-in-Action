@@ -29,7 +29,7 @@
         }
 
         h3 {
-            color: #333;
+            color:#333;
         }
 
         input[type="checkbox"] {
@@ -64,3 +64,33 @@
         .validationError {
             color: red;
         }
+
+
+              .jumbotron {
+                   padding: 60px 0;
+                }
+
+                .jumbotron h1 {
+                    font-size: 36px;
+                    color: #333;
+                }
+
+                .jumbotron p {
+                    font-size: 18px;
+                    color: #666;
+                }
+
+                .btn-primary {
+                    background-color: #333;
+                    border-color: #333;
+                }
+
+                .btn-primary:hover {
+                    background-color: #555;
+                    border-color: #555;
+                }
+
+                .jumbotron img {
+                    max-width: 100%;
+                    height: auto;
+                }

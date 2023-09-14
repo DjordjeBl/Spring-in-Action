@@ -4,6 +4,7 @@ import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 
 import jakarta.validation.constraints.Pattern;
+import java.util.Date;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -37,6 +38,12 @@ public class TacoOrder {
 
     @Digits(integer=3, fraction=0, message="Invalid CVV")
     private String ccCVV;
+
+    private static final long serialVersionUID = 1L;
+
+    private Long id;
+
+    private Date placedAt;
 
     private List<Taco> tacos = new ArrayList<>();
 

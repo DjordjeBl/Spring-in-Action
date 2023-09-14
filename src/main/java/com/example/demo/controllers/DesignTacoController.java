@@ -20,12 +20,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/*
-  * Handle HTTP GET requests where the request path is /design
-  * Build a list of ingredients
-  * Hand off the requests and the ingredient data to a view template to be rendered as HTML and sent to the requesting web browser
-*/
-
 @Slf4j
 @Controller
 @RequestMapping("/design")

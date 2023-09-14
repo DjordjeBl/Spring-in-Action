@@ -2,6 +2,7 @@ package com.example.demo.models;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import java.util.Date;
 import lombok.Data;
 
 import java.util.List;
@@ -16,4 +17,8 @@ public class Taco {
     @NotNull
     @Size(min = 1, message = "You must choose at least 1 ingredient")
     private List<Ingredient> ingredients;
+
+    private Long id;
+
+    private Date createdAt = new Date();
 }
