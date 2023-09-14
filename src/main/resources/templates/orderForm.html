@@ -25,36 +25,60 @@
   <div class="form-group">
     <label for="deliveryName">Name:</label>
     <input type="text" th:field="*{deliveryName}" id="deliveryName" class="form-control" />
+    <span class="validationError"
+          th:if="${#fields.hasErrors('deliveryName')}"
+          th:errors="*{deliveryName}">Delivery Name Error</span>
   </div>
   <div class="form-group">
     <label for="deliveryStreet">Street address:</label>
     <input type="text" th:field="*{deliveryStreet}" id="deliveryStreet" class="form-control" />
+    <span class="validationError"
+          th:if="${#fields.hasErrors('deliveryStreet')}"
+          th:errors="*{deliveryStreet}">Delivery Street Error</span>
   </div>
   <div class="form-group">
     <label for="deliveryCity">City:</label>
     <input type="text" th:field="*{deliveryCity}" id="deliveryCity" class="form-control" />
+    <span class="validationError"
+          th:if="${#fields.hasErrors('deliveryCity')}"
+          th:errors="*{deliveryCity}">Delivery City Error</span>
   </div>
   <div class="form-group">
     <label for="deliveryState">State:</label>
     <input type="text" th:field="*{deliveryState}" id="deliveryState" class="form-control" />
+    <span class="validationError"
+          th:if="${#fields.hasErrors('deliveryState')}"
+          th:errors="*{deliveryState}">Delivery State Error</span>
   </div>
   <div class="form-group">
     <label for="deliveryZip">Zip code:</label>
     <input type="text" th:field="*{deliveryZip}" id="deliveryZip" class="form-control" />
+    <span class="validationError"
+          th:if="${#fields.hasErrors('deliveryZip')}"
+          th:errors="*{deliveryZip}">Delivery Zip Error</span>
   </div>
 
   <h3>Here's how I'll pay...</h3>
   <div class="form-group">
     <label for="ccNumber">Credit Card #:</label>
     <input type="text" th:field="*{ccNumber}" id="ccNumber" class="form-control" />
+    <span class="validationError"
+          th:if="${#fields.hasErrors('ccNumber')}"
+          th:errors="*{ccNumber}">CC Num Error</span>
   </div>
   <div class="form-group">
     <label for="ccExpiration">Expiration:</label>
     <input type="text" th:field="*{ccExpiration}" id="ccExpiration" class="form-control" />
+    <span class="validationError"
+          th:if="${#fields.hasErrors('ccExpiration')}"
+          th:errors="*{ccExpiration}">CC Expiration Error</span>
   </div>
   <div class="form-group">
-    <label for="ccCVV">CVV:</label>
-    <input type="text" th:field="*{ccCVV}" id="ccCVV" class="form-control" />
+      <label for="ccCVV">CVV:</label>
+      <input type="text" th:field="*{ccCVV}" id="ccCVV" class="form-control" />
+      <span class="validationError"
+            th:if="${#fields.hasErrors('ccCVV')}"
+            th:errors="*{ccCVV}">CC CVV Error</span>
   </div>
 
   <input type="submit" value="Submit Order" class="btn btn-primary" />

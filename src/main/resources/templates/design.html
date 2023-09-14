@@ -28,6 +28,7 @@
                        th:value="${ingredient.id}"/>
                 <span th:text="${ingredient.name}">INGREDIENT</span><br/>
             </div>
+            <span class="validationError" th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}">Wrap Error</span>
         </div>
 
 
@@ -38,6 +39,7 @@
                        th:value="${ingredient.id}"/>
                 <span th:text="${ingredient.name}">INGREDIENT</span><br/>
             </div>
+            <span class="validationError" th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}">Protein Error</span>
         </div>
 
         <div class="ingredient-group" id="cheeses">
@@ -47,6 +49,7 @@
                        th:value="${ingredient.id}"/>
                 <span th:text="${ingredient.name}">INGREDIENT</span><br/>
             </div>
+            <span class="validationError" th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}">Cheese Error</span>
         </div>
 
         <div class="ingredient-group" id="veggies">
@@ -56,12 +59,14 @@
                        th:value="${ingredient.id}"/>
                 <span th:text="${ingredient.name}">INGREDIENT</span><br/>
             </div>
+            <span class="validationError" th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}">Veggies Error</span>
         </div>
 
     </div>
     <div>
         <h3>Name your taco creation:</h3>
         <input type="text" th:field="*{name}"/>
+        <span class="validationError" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
         <br/>
         <button>Submit Your Taco</button>
     </div>
