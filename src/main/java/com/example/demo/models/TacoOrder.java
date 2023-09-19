@@ -10,16 +10,22 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.validator.constraints.CreditCardNumber;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
 @Data
+@Table("Taco_Cloud_Order")
 public class TacoOrder {
 
     private static final long serialVersionUID = 1L;
 
+    @Id
     private Long id;
 
     private Date placedAt;
 
+    @Column("customer_name")
     @NotBlank(message="Delivery name is required")
     private String deliveryName;
 
