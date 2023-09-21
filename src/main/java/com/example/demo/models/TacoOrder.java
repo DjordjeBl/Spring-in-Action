@@ -3,7 +3,9 @@ package com.example.demo.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 
@@ -15,12 +17,15 @@ import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.validator.constraints.CreditCardNumber;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
 import jakarta.persistence.CascadeType;
 
 @Data
 @Entity
+@Table(name="Taco_Order")
 public class TacoOrder {
+
+    @ManyToOne
+    private User user;
 
     private static final long serialVersionUID = 1L;
 
@@ -30,7 +35,6 @@ public class TacoOrder {
 
     private Date placedAt;
 
-    @Column("customer_name")
     @NotBlank(message="Delivery name is required")
     private String deliveryName;
 
